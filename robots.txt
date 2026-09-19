@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tinycreations.studio/sitemap.xml
+Sitemap: https://www.tinycreations.studio/sitemap.xml

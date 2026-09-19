@@ -44,14 +44,14 @@
     var i = items.indexOf(el);
     if (i < 0) { items = [el]; i = 0; }
     lastFocus = document.activeElement;
-    box.hidden = false;
+    box.hidden = false; box.classList.add('open');
     document.body.style.overflow = 'hidden';
     show(i);
     box.querySelector('.lb-close').focus();
   }
 
   function close() {
-    box.hidden = true;
+    box.hidden = true;  box.classList.remove('open');
     img.src = '';
     document.body.style.overflow = '';
     if (lastFocus) lastFocus.focus();
@@ -70,11 +70,11 @@
       if (e.target.closest('.lb-prev')) return show(idx - 1);
       if (e.target.closest('.lb-next')) return show(idx + 1);
       // clicking the backdrop closes; clicking the image itself does not
-      if (!box.hidden && e.target === box) close();
+      if (box.classList.contains('open') && e.target === box) close();
     });
 
     document.addEventListener('keydown', function (e) {
-      if (box.hidden) return;
+      if (!box.classList.contains('open')) return;
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowLeft') show(idx - 1);
       if (e.key === 'ArrowRight') show(idx + 1);

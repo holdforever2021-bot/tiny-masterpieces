@@ -21,7 +21,18 @@
   }
 
   function designCard(d) {
-    var priced = d.price > 0;
+    /* Bookmarks come in three finishes at three prices; a card is just a card.
+       The picker writes the price back into the tile so the number always
+       matches what the Add button will charge. */
+    var picker = '';
+    if (d.t === 'bookmark' && typeof FINISHES !== 'undefined') {
+      picker = '<label class="sr-only" for="fin-' + d.id + '">Finish for ' + esc(d.name) + '</label>' +
+        '<select class="d-finish" id="fin-' + d.id + '" data-id="' + d.id + '">' +
+        FINISHES.map(function (f) {
+          return '<option value="' + f.id + '" data-price="' + f.price + '">' +
+                 f.label + ' — ' + money(f.price) + '</option>';
+        }).join('') + '</select>';
+    }
     return '' +
       '<article class="d-card" data-theme="' + d.theme + '">' +
         '<div class="d-shot"><img src="' + IMG + d.id + '.jpg" alt="' + esc(d.name) +
@@ -29,12 +40,10 @@
         '<div class="d-body">' +
           '<h4>' + esc(d.name) + '</h4>' +
           (d.note ? '<p class="d-note">' + esc(d.note) + '</p>' : '') +
+          picker +
           '<div class="d-foot">' +
-            (priced
-              ? '<span class="d-price">' + money(d.price) + '</span>' +
-                '<button class="d-add" type="button" data-id="' + d.id + '">Add</button>'
-              : '<span class="d-price soft">Free with an order</span>' +
-                '<span class="d-ask">just ask</span>') +
+            '<span class="d-price" id="price-' + d.id + '">' + money(d.price) + '</span>' +
+            '<button class="d-add" type="button" data-id="' + d.id + '">Add</button>' +
           '</div>' +
         '</div>' +
       '</article>';
@@ -57,12 +66,26 @@
         '</section>';
     }).join('');
 
+    host.addEventListener('change', function (e) {
+      var sel = e.target.closest('.d-finish'); if (!sel) return;
+      var opt = sel.options[sel.selectedIndex];
+      var tag = $('price-' + sel.dataset.id);
+      if (tag) tag.textContent = money(+opt.dataset.price);
+    });
+
     host.addEventListener('click', function (e) {
       var b = e.target.closest('.d-add');
       if (!b || !window.TM) return;
       var d = DESIGNS.filter(function (x) { return x.id === b.dataset.id; })[0];
       if (!d) return;
-      window.TM.addDesign(d);
+      var sel = $('fin-' + d.id), out = d;
+      if (sel) {
+        var opt = sel.options[sel.selectedIndex];
+        out = { id: d.id + ':' + sel.value, t: d.t,
+                name: d.name + ' (' + opt.textContent.split(' — ')[0] + ')',
+                price: +opt.dataset.price };
+      }
+      window.TM.addDesign(out);
       b.textContent = 'Added';
       setTimeout(function () { b.textContent = 'Add'; }, 1100);
     });

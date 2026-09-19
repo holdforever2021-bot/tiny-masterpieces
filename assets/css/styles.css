@@ -367,3 +367,8 @@ footer a{color:var(--purple)}
    rather than [hidden] removes any chance of a specificity fight. */
 .lightbox.open{display:grid;grid-template-columns:auto 1fr auto;
   align-items:center;gap:10px;padding:26px}
+
+/* finish picker on bookmark tiles */
+.d-finish{width:100%;margin:6px 0 2px;padding:7px 9px;border:1px solid var(--line);
+  border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:.83rem}
+.d-finish:focus-visible{outline:3px solid var(--lilac);outline-offset:2px}

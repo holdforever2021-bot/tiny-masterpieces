@@ -13,6 +13,15 @@
 
 var PRICE = { acrylic: 5, sleeve: 3, paper: 1, card: 5 };
 
+/* A bookmark DESIGN can be made three ways. The photographs all show the acrylic
+   version, so that is the default; the cheaper finishes are the same artwork on
+   paper. Straight from the price card — paper $1, with sleeve $3, acrylic $5. */
+var FINISHES = [
+  { id:'acrylic', label:'Acrylic + tassel', price: PRICE.acrylic, note:'as photographed' },
+  { id:'sleeve',  label:'Paper in a sleeve', price: PRICE.sleeve,  note:'protected, no tassel' },
+  { id:'paper',   label:'Paper',             price: PRICE.paper,   note:'simple and cheap' }
+];
+
 /* Themes drive the shop's grouping. Order here is display order. */
 var THEMES = [
   { id: 'reading', name: 'For the book lover',

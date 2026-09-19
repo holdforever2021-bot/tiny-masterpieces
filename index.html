@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiny Masterpieces — handmade bracelets, bookmarks &amp; cards</title>
+  <meta name="description" content="Handmade bracelets, bookmarks and greeting cards from Tiny Masterpieces. Custom orders and birthday party favors, made by hand in Woodbridge, CT.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="canonical" href="https://tinycreations.studio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tiny Masterpieces — handmade bracelets, bookmarks &amp; cards">
+  <meta property="og:description" content="Handmade to order. Custom colours, name beads, and birthday party favors.">
+  <meta property="og:url" content="https://tinycreations.studio/">
+  <meta property="og:image" content="https://tinycreations.studio/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tiny Masterpieces",
+    "description": "Handmade bracelets, bookmarks and greeting cards, made to order.",
+    "url": "https://tinycreations.studio/",
+    "email": "support@tinycreations.studio",
+    "telephone": "+1-203-615-8505",
+    "areaServed": "Connecticut",
+    "priceRange": "$"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">Tiny Masterpieces</span>
+  <span class="links">
+    <a href="#shop">Order now</a>
+    <a href="#design">Design yours</a>
+    <a href="#designs">Designs</a>
+    <a href="#sets">Sets</a>
+    <a href="#soon">Coming soon</a>
+    <a href="#parties">Parties</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#order">Contact</a>
+  </span>
+</div>
+      <button id="cartBtn" class="cart-btn" type="button" aria-label="Cart, empty">
+        <span aria-hidden="true">Cart</span>
+        <span id="cartCount" class="cart-count" hidden>0</span>
+      </button></nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <img class="logo" src="assets/img/logo.png" alt="Tiny Masterpieces">
+    <p class="sub">You pick the words. You pick the colours. We make it to order.
+       Bookmarks, greeting cards and bracelets — designed by you, one at a time,
+       so nobody else has the same one.</p>
+    <div class="btns">
+      <a class="btn primary" href="#design">Design your own</a>
+      <a class="btn ghost" href="#parties">Planning a party?</a>
+    </div>
+    <div class="band"><img src="assets/img/hero-products.jpg" alt="Handmade cards, bookmarks and bracelets"></div>
+    <p class="demo">Bookmark photos are still on the way — that one illustration is a placeholder.</p>
+  </header>
+
+  <!-- ORDER NOW ---------------------------------------------------------->
+  <section id="shop">
+    <p class="eyebrow">Made to order</p>
+    <h2>Beaded bracelets</h2>
+    <p class="lede">Stretch fit, mixed pastels, charms and letter beads. Tell us the name
+       or the colours and we string it after you order.</p>
+
+    <div class="brac-wrap">
+      <div class="brac-shot">
+        <img src="assets/img/shop/scene-bracelets.jpg" alt="Beaded bracelets on the display rack" loading="lazy">
+      </div>
+      <div class="brac-buy">
+        <ul class="prices big">
+          <li><span>One</span><span class="dots"></span><span class="amt">$4</span></li>
+          <li><span>Two</span><span class="dots"></span><span class="amt">$7</span></li>
+          <li><span>Three</span><span class="dots"></span><span class="amt">$10</span></li>
+        </ul>
+        <p class="note">Charms and letter beads included. Name beads add $2 each.</p>
+        <div class="buy">
+          <label class="sr-only" for="opt-bracelet">Bracelet style</label>
+          <select id="opt-bracelet"></select>
+          <label class="sr-only" for="qty-bracelet">Quantity</label>
+          <input id="qty-bracelet" type="number" min="1" max="99" value="1" inputmode="numeric">
+          <button class="btn-add" type="button" data-pid="bracelet">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CATALOGUE ------------------------------------------------------>
+  <section id="designs">
+    <p class="eyebrow">Every design, photographed</p>
+    <h2>Pick your design</h2>
+    <p class="lede">These are the actual pieces, shot on the table. Acrylic bookmarks are
+       $5 with a hand-tied tassel, greeting cards are $5 with an envelope. Add what you
+       want, then tell us the name or message at checkout.</p>
+
+    <div id="themeFilters" class="chips-row"></div>
+    <div id="themeShop"></div>
+  </section>
+
+  <!-- SETS --------------------------------------------------------------->
+  <section id="sets">
+    <p class="eyebrow">Put together</p>
+    <h2>Ready-made sets</h2>
+    <p class="lede">Priced as the sum of the parts — no markup for the bow. Say which
+       designs you want in the notes, or leave it to us.</p>
+    <div id="setGrid" class="set-grid"></div>
+  </section>
+
+  <!-- BUILDER ------------------------------------------------------------>
+  <section id="design">
+    <p class="eyebrow">Made to order</p>
+    <h2>Design your own</h2>
+    <p class="lede">Pick it, colour it, name it. Build a basket here and send it over — we reply
+       with the total and the ready-by date before anything gets made.</p>
+
+    <div class="builder" style="margin-top:22px">
+      <div class="card">
+        <div class="field"><label>1. What are we making?</label><div class="opts" id="opt-item"></div></div>
+        <div class="field"><label>2. Which style?</label><div class="opts" id="opt-variant"></div></div>
+        <div class="field"><label>3. Colour theme</label><div class="opts" id="opt-colour"></div></div>
+        <div class="field">
+          <label>4. Add a name or word <span id="letterNote" style="font-weight:400;color:var(--muted)">(+$2 each, up to 10 letters)</span></label>
+          <input type="text" id="nameBeads" maxlength="10" placeholder="e.g. BLUE">
+        </div>
+        <div class="field">
+          <label>5. How many?</label>
+          <div class="qty">
+            <button type="button" id="minus">&minus;</button>
+            <input type="number" id="qty" value="1" min="1" max="200">
+            <button type="button" id="plus">+</button>
+          </div>
+          <p class="note" id="bulkNote"></p>
+        </div>
+        <button class="btn primary" type="button" id="addBtn">Add to my order</button>
+      </div>
+
+      <aside class="summary">
+        <h3 style="color:var(--purple)">Your order</h3>
+        <div class="line"><span id="lineDesc">&mdash;</span><span id="linePrice"></span></div>
+        <ul class="basket" id="basket"></ul>
+        <div class="line" style="border-top:1px solid var(--line);margin-top:10px;padding-top:12px">
+          <span>Total</span><span class="total" id="total">$0</span>
+        </div>
+        <button class="btn primary" id="sendOrder" style="width:100%;margin-top:12px">Send this order</button>
+        <p class="note">Nothing is charged here. Pay by Venmo or Zelle once the order is confirmed.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- COMING SOON -------------------------------------------------------->
+  <section id="soon">
+    <p class="eyebrow">In the workshop</p>
+    <h2>Coming soon</h2>
+    <p class="lede">Ideas we're building out. Prices aren't set yet — tap
+       <em>Keep me posted</em> on anything you'd want and we'll come back to you first.</p>
+
+    <div class="grid g3" style="margin-top:22px" id="soonGrid"></div>
+
+    <div class="card" style="margin-top:20px">
+      <h3 style="color:var(--purple)">Keep me posted</h3>
+      <p class="note" style="margin-top:4px">Nothing picked yet — tap the ideas above.</p>
+      <ul class="chips" id="interestChips"></ul>
+      <div class="grid g2" style="margin-top:14px">
+        <input type="email" id="waitEmail" placeholder="your@email.com">
+        <button class="btn primary" id="waitBtn">Tell me when it's ready</button>
+      </div>
+      <p class="ok" id="waitOk" style="display:none">Thanks — that opens an email you can send.</p>
+    </div>
+
+    <p class="note" style="margin-top:18px">Also being kicked around:
+      bookmark club (one new design a month), stockists in local shops,
+      school fundraiser packs, and a market stall calendar.</p>
+  </section>
+
+  <!-- PARTIES ------------------------------------------------------------>
+  <section id="parties">
+    <p class="eyebrow">The thing nobody else does</p>
+    <h2>Party packs, made per guest</h2>
+    <p class="lede">A shop sells you twelve identical favors. We design twelve different ones —
+       each guest's name on their own bracelet, each bookmark in the colours of your theme,
+       each tag hand-written. That takes people, not a factory, which is exactly why it is
+       worth doing. Tell us the theme, the guest names and the date, and we will put together
+       a quote.</p>
+
+    <div class="grid g3" style="margin-top:22px">
+      <article class="card">
+        <span class="badge b-soon">Pricing soon</span>
+        <h3>Sparkle Pack</h3>
+        <p class="tagline">pinks, lilacs &amp; pearl</p>
+        <ul class="chips"><li>beaded bracelet</li><li>paper bookmark</li><li>heart charm</li><li>thank-you tag</li></ul>
+        <div class="tbd">Quote on request</div>
+      </article>
+      <article class="card">
+        <span class="badge b-soon">Pricing soon</span>
+        <h3>Explorer Pack</h3>
+        <p class="tagline">navy, teal &amp; forest green</p>
+        <ul class="chips"><li>beaded bracelet</li><li>paper bookmark</li><li>star or bolt charm</li><li>thank-you tag</li></ul>
+        <div class="tbd">Quote on request</div>
+      </article>
+      <article class="card">
+        <span class="badge b-soon">Pricing soon</span>
+        <h3>Rainbow Pack</h3>
+        <p class="tagline">every colour, no theme</p>
+        <ul class="chips"><li>beaded bracelet</li><li>paper bookmark</li><li>mystery charm</li><li>thank-you tag</li></ul>
+        <div class="tbd">Quote on request</div>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h3 style="color:var(--purple)">Tell us about the party</h3>
+      <div class="grid g3" style="margin-top:12px">
+        <div class="field" style="margin:0"><label>Guests</label>
+          <input type="number" id="pGuests" value="12" min="1" max="200"></div>
+        <div class="field" style="margin:0"><label>Party date</label>
+          <input type="text" id="pDate" placeholder="e.g. March 14"></div>
+        <div class="field" style="margin:0"><label>Pack idea</label>
+          <select id="pPack">
+            <option>Sparkle Pack</option><option>Explorer Pack</option>
+            <option>Rainbow Pack</option><option>Not sure yet — suggest something</option>
+          </select></div>
+      </div>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="field" style="margin:0"><label>Theme or colours</label>
+          <input type="text" id="pTheme" placeholder="e.g. mermaids, teal and gold"></div>
+        <div class="field" style="margin:0"><label>Rough budget per guest <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+          <input type="text" id="pBudget" placeholder="e.g. around $5"></div>
+      </div>
+      <button class="btn primary" id="quoteBtn" style="margin-top:16px">Request a quote</button>
+      <p class="note">We'll reply with pack options and a price. No obligation — we're still
+        figuring out what these should cost.</p>
+    </div>
+
+    <div class="grid g3 steps" style="margin-top:26px">
+      <article class="card"><h3>Make-your-own bar</h3>
+        <span class="badge b-idea">Idea stage</span>
+        <p class="note" style="margin-top:0">We bring the beads and boards, guests string their own
+          bracelet as the party activity. Favor and entertainment in one.</p></article>
+      <article class="card"><h3>Named for every guest</h3>
+        <span class="badge b-test">Testing</span>
+        <p class="note" style="margin-top:0">Each pack tagged with the guest's name — send the list
+          and we letter them by hand.</p></article>
+      <article class="card"><h3>Matching thank-you cards</h3>
+        <span class="badge b-soon">Coming soon</span>
+        <p class="note" style="margin-top:0">A card per guest in the same colours, blank inside for
+          the birthday kid to sign.</p></article>
+    </div>
+  </section>
+
+  <!-- GALLERY ------------------------------------------------------------>
+  <section id="gallery">
+    <p class="eyebrow">Real photos landing soon</p>
+    <h2>Gallery</h2>
+    <p class="lede">Every piece is handmade, so no two come out quite the same. Photos of the
+       actual pieces are on their way.</p>
+    <div class="gallery" style="margin-top:22px">
+      <div class="ph">Bracelet stack</div>
+      <div class="ph">Acrylic bookmarks</div>
+      <div class="ph">Card set</div>
+      <div class="ph">Name beads</div>
+      <div class="ph">Favor pack</div>
+      <div class="ph">Charm close-up</div>
+      <div class="ph">The workbench</div>
+      <div class="ph">Market table</div>
+    </div>
+  </section>
+
+  <!-- FIND US ------------------------------------------------------------>
+  <!-- ABOUT --------------------------------------------------------------->
+  <section id="about">
+    <p class="eyebrow">Who designs this</p>
+    <h2>Led by Arya and her mother</h2>
+
+    <div class="about-grid">
+      <div class="about-copy">
+        <p class="lede">Tiny Masterpieces began with a complaint: the thing you actually
+          want almost never exists. Not the bracelet with your friend&rsquo;s name on it.
+          Not the card that says the right thing instead of the nearest thing. So Arya and
+          her mother started designing their own.</p>
+
+        <p>Arya brings the ideas &mdash; the sketches, the colours, the decision that a set
+          should feel a certain way before anyone works out how to build it. Her mother
+          makes it real: what sizes fit, what holds up in a school bag, what still looks
+          right after a week of being worn every day.</p>
+
+        <p>The Diwali cards are the clearest example. Go looking for a good one and you
+          mostly come back empty-handed &mdash; so they drew their own, diyas coloured in by
+          hand. That instinct is the whole business. If the version you want does not exist,
+          design it.</p>
+
+        <p>Which is why nothing here is picked off a shelf. You choose the words, the name
+          and the colours, and it gets made after you ask for it. Nobody else ends up with
+          the same one.</p>
+      </div>
+
+      <figure class="about-figure">
+        <img src="assets/img/logo-card.jpg" alt="Tiny Masterpieces" loading="lazy">
+        <figcaption>Designed in Woodbridge, Connecticut.</figcaption>
+      </figure>
+    </div>
+
+    <ul class="about-facts">
+      <li><strong>Designed here</strong><span>Drawn before it is made, never copied</span></li>
+      <li><strong>Made to order</strong><span>Yours is made after you ask for it</span></li>
+      <li><strong>Your words</strong><span>Names, messages and colours you choose</span></li>
+      <li><strong>Woodbridge, CT</strong><span>Pickup and local delivery</span></li>
+    </ul>
+  </section>
+
+  <section id="findus">
+    <p class="eyebrow">Come say hi</p>
+    <h2>Where to find us</h2>
+    <div class="card" style="margin-top:18px">
+      <div class="event"><span class="when">Coming up</span>
+        <span>Children's Business Fair &mdash; Stamford, CT</span></div>
+      <div class="event"><span class="when">Anytime</span>
+        <span>Local pickup in Woodbridge, CT &mdash; message to arrange</span></div>
+      <div class="event" style="border:0"><span class="when">Ask us</span>
+        <span>School fairs, markets and pop-ups &mdash; we'll travel for a table</span></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS ------------------------------------------------------->
+  <section id="how">
+    <h2>How it works</h2>
+    <div class="grid g4 steps" style="margin-top:22px">
+      <article class="card"><h3>Tell us</h3><p class="note">Build a basket, or just message what you're after.</p></article>
+      <article class="card"><h3>We confirm</h3><p class="note">A note back with the total and the ready-by date.</p></article>
+      <article class="card"><h3>We make it</h3><p class="note">Handmade after you order — no bins of stock.</p></article>
+      <article class="card"><h3>Pick up or post</h3><p class="note">Local pickup free. Shipping quoted with your order.</p></article>
+    </div>
+  </section>
+
+  <!-- ORDER / CONTACT ---------------------------------------------------->
+  <section id="order">
+    <h2>Send your order</h2>
+    <p class="lede">This fills in an email with your basket already written out. Or text us —
+       we're small and we answer.</p>
+
+    <div class="card" style="margin-top:22px">
+      <div class="grid g2">
+        <div class="field"><label>Your name</label><input type="text" id="fName" placeholder="Name"></div>
+        <div class="field"><label>Email or phone</label><input type="text" id="fContact" placeholder="How should we reply?"></div>
+      </div>
+      <div class="grid g2">
+        <div class="field"><label>Needed by</label><input type="text" id="fDate" placeholder="e.g. next Friday, or March 14"></div>
+        <div class="field"><label>Pickup or shipping?</label>
+          <select id="fDelivery"><option>Local pickup</option><option>Ship to me</option></select></div>
+      </div>
+      <div class="field"><label>Anything else?</label>
+        <textarea id="fNotes" rows="3" placeholder="Party theme, colours, names for the beads…"></textarea></div>
+      <button class="btn primary" type="button" id="mailBtn">Open my order email</button>
+      <p class="note">Prefer to text? <strong>203-615-8505</strong> or <strong>203-685-9029</strong></p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h2>Questions</h2>
+    <div style="margin-top:14px">
+      <details><summary>How long does a custom order take?</summary>
+        <p>A few days for small orders. Party work needs about two weeks so everything gets made properly.</p></details>
+      <details><summary>Why don't party packs have prices yet?</summary>
+        <p>We're still settling what goes in each one. Send the party details and we'll quote it —
+           and you'll be first to see the pricing when it's set.</p></details>
+      <details><summary>Can you match my party colours?</summary>
+        <p>Yes. Send a photo of the invite or the colours and we'll bead to match.</p></details>
+      <details><summary>Is there a minimum order?</summary>
+        <p>No minimum. Bulk pricing starts at 10 of anything.</p></details>
+      <details><summary>How do I pay?</summary>
+        <p>Venmo or Zelle online, or cash on pickup. Card payment on the site is coming soon. Nothing is due until the order is confirmed.</p></details>
+      <details><summary>Who makes these?</summary>
+        <p>Designed by Arya and her mother in Woodbridge, Connecticut. Every piece is made to order in the colours and words you choose, so no two come out the same.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="contactgrid">
+      <div>
+        <div style="font-family:Mali,cursive;color:var(--purple);font-size:1.2rem">Tiny Masterpieces</div>
+        <div>Handmade with love &mdash; Woodbridge, CT</div>
+      </div>
+      <div>
+        <a href="mailto:support@tinycreations.studio">support@tinycreations.studio</a><br>
+        203-615-8505 &nbsp;&bull;&nbsp; 203-685-9029
+      </div>
+      <div>
+        <span class="pill">Venmo</span><span class="pill">Zelle</span><span class="pill">Cash</span>
+        
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="data/site-config.js"></script>
+<script src="data/catalogue.js"></script>
+<script src="assets/js/app.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/shop.js"></script>
+
+  <!-- CART / CHECKOUT ----------------------------------------------------->
+  <div id="scrim" class="scrim" hidden></div>
+  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="drawer-head">
+      <h2 id="drawerTitle">Your cart</h2>
+      <button id="closeCart" class="icon-btn" type="button" aria-label="Close cart">×</button>
+    </div>
+
+    <div id="panelCart" class="drawer-body">
+      <ul id="cartLines" class="cart-lines"></ul>
+      <div class="cart-foot">
+        <p id="cartSaved" class="saved" hidden></p>
+        <p class="total-row"><span>Total</span><strong id="cartTotal">$0</strong></p>
+        <p class="note">Nothing is charged here. Pay by Venmo or Zelle after the order is confirmed.</p>
+        <button id="toCheckout" class="btn btn-primary" type="button" disabled>Checkout</button>
+      </div>
+    </div>
+
+    <div id="panelCheckout" class="drawer-body" hidden>
+      <p class="co-summary"><span id="coCount">0 items</span> · <strong id="coTotal">$0</strong></p>
+      <form id="checkoutForm" novalidate>
+        <div class="field"><label for="coName">Your name</label>
+          <input id="coName" name="name" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="coEmail">Email</label>
+          <input id="coEmail" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="coPhone">Phone <span class="opt">(optional)</span></label>
+          <input id="coPhone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="coFulfil">How would you like it?</label>
+          <select id="coFulfil" name="fulfil"></select></div>
+        <div class="field" id="coAddrWrap" hidden><label for="coAddr">Address</label>
+          <textarea id="coAddr" name="addr" rows="2"></textarea></div>
+        <div class="field"><label for="coPay">Payment preference</label>
+          <select id="coPay" name="pay"></select></div>
+        <div class="field"><label for="coNotes">Anything else? <span class="opt">(colours, names, date needed)</span></label>
+          <textarea id="coNotes" name="notes" rows="3"></textarea></div>
+        <div class="co-actions">
+          <button id="backToCart" class="btn btn-ghost" type="button">Back</button>
+          <button class="btn btn-primary" type="submit">Send order</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="panelDone" class="drawer-body" hidden>
+      <p class="done-tick" aria-hidden="true">✓</p>
+      <h3>Order sent</h3>
+      <p>Your reference is <strong id="doneRef"></strong>.</p>
+      <p id="doneSummary" class="note"></p>
+      <p class="note">Your email app should have opened with the order in it. If it did not,
+        copy the details below and send them to <span data-brand>Tiny Masterpieces</span>
+        any way you like.</p>
+      <button id="copyOrder" class="btn btn-ghost" type="button">Copy order details</button>
+      <textarea id="copyBody" rows="8" hidden readonly></textarea>
+      <button id="doneClose" class="btn btn-primary" type="button">Done</button>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+</body>
+</html>
